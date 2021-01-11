@@ -1,0 +1,26 @@
+.component {
+  background-color: antiquewhite;
+}
+.login_box {
+  padding: 5%;
+  background-color: #2b4b6b;
+  border-radius: 9px;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 50%;
+  transform: translate(-50%);
+  color: white;
+}
+.ant-form-item-required {
+  color: white !important;
+}
+.title {
+  position: absolute;
+  color: #000;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.ant-btn {
+  margin-left: 3% !important;
+}
