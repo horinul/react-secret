@@ -11,3 +11,14 @@
   .site-layout-background {
     background: #fff;
   } */
+.ant-list-item-meta-avatar {
+  background-color: black !important;
+  color: white;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 0.8vh;
+  line-height: 4vh;
+  margin: 0 auto;
+  display: inline !important;
+  text-align: center !important;
+}

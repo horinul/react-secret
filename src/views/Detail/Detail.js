@@ -1,62 +1,67 @@
 import React from "react";
-import { Layout, List, Typography } from "antd";
+import { Layout } from "antd";
+import ProList from "@ant-design/pro-list";
+import "@ant-design/pro-list/dist/list.css";
+import { RightOutlined } from "@ant-design/icons";
+import "./DetailDefault.css";
 const { Header, Content, Footer, Sider } = Layout;
-const data = [
-  "Racing car sprays burning fuel into crowd.",
-  "Japanese princess to wed commoner.",
-  "Australian walks 100km after outback crash.",
-  "Man charged over missing wedding girl.",
-  "Los Angeles battles huge wildfires.",
-  "Racing car sprays burning fuel into crowd.",
-  "Japanese princess to wed commoner.",
-  "Australian walks 100km after outback crash.",
-  "Man charged over missing wedding girl.",
-  "Los Angeles battles huge wildfires.",
-  "Racing car sprays burning fuel into crowd.",
-  "Japanese princess to wed commoner.",
-  "Australian walks 100km after outback crash.",
-  "Man charged over missing wedding girl.",
-  "Los Angeles battles huge wildfires.",
-  "Racing car sprays burning fuel into crowd.",
-  "Japanese princess to wed commoner.",
-  "Australian walks 100km after outback crash.",
-  "Man charged over missing wedding girl.",
-  "Los Angeles battles huge wildfires.",
-  "Racing car sprays burning fuel into crowd.",
-  "Japanese princess to wed commoner.",
-  "Australian walks 100km after outback crash.",
-  "Man charged over missing wedding girl.",
-  "Los Angeles battles huge wildfires.",
+const dataSource = [
+  {
+    name: "语雀的天空",
+    desc: "我是一条测试的描述",
+  },
+  {
+    name: "Ant Design",
+    desc: "我是一条测试的描述",
+  },
+  {
+    name: "蚂蚁金服体验科技",
+    desc: "我是一条测试的描述",
+  },
+  {
+    name: "TechUI",
+    desc: "我是一条测试的描述",
+  },
 ];
-
+for (let i in dataSource) {
+  dataSource[i].image = dataSource[i].name[0];
+}
 const Detail = (props) => {
+  const getDetail = (text, row) => {
+    console.log(text, row);
+  };
   return (
     <div>
       <Layout>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-          theme="light"
-        >
+        <Sider breakpoint="lg" collapsedWidth="0" width="300" theme="light">
           <div className="logo" />
-          <List
-            style={{
-              height: "100vh",
-              left: 0,
-              overflow: "auto",
+          <ProList
+            toolBarRender={() => {
+              return [<div>111</div>];
             }}
-            size="small"
-            header={<div>Header</div>}
-            footer={<div>Footer</div>}
-            bordered
-            dataSource={data}
-            renderItem={(item) => <List.Item>{item}</List.Item>}
+            rowKey="name"
+            headerTitle="基础列表"
+            dataSource={dataSource}
+            showActions="hover"
+            metas={{
+              title: {
+                dataIndex: "name",
+              },
+              avatar: {
+                dataIndex: "image",
+                valueType: "text",
+              },
+              description: {
+                dataIndex: "desc",
+              },
+              actions: {
+                render: (text, row) => [
+                  <div>
+                    <RightOutlined />
+                  </div>,
+                ],
+              },
+            }}
           />
         </Sider>
         <Layout>
